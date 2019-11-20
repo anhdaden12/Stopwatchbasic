@@ -48,6 +48,7 @@ class ViewController: UIViewController {
 //        isRunning = !isRunning
         if !(timer.isValid) {
             self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.countNumber), userInfo: nil, repeats: true)
+            RunLoop.current.add(self.timer, forMode: .common)
             startButton.setTitle("Stop", for: .normal)
         } else {
             startButton.setTitle("Start", for: .normal)
